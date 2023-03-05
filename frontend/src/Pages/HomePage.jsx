@@ -15,7 +15,10 @@ import Signup from "../Components/Signup";
 function HomePage() {
   return (
     <div>
-      <Container maxW="xl" centerContent border={"5px solid red"} margin="auto">
+      <Container
+        maxW="xl"
+        centerContent
+      >
         <Box
           display="flex"
           justifyContent="center"
@@ -31,15 +34,25 @@ function HomePage() {
             🅲🅷🅸🆃-🅲🅷🅰🆃
           </Text>
         </Box>
-        <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
-          <Tabs>
+        <Box
+          bg="white"
+          w="100%"
+          p={4}
+          borderRadius="lg"
+          borderWidth="1px"
+          //   bgColor={"transparent"}
+          //   color="white"
+        >
+          <Tabs variant='enclosed' size={"lg"} isFitted>
             <TabList mb="1em">
               <Tab>Login</Tab>
               <Tab>Sign Up</Tab>
             </TabList>
             <TabPanels>
               <TabPanel>
-                <Login />
+                <Box>
+                  <Login />
+                </Box>
               </TabPanel>
               <TabPanel>
                 <Signup />
