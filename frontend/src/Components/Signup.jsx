@@ -10,9 +10,11 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const toast = useToast();
+  const navigate = useNavigate()
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   const [loading, setLoading] = useState(false);
@@ -38,7 +40,7 @@ function Signup() {
       !formstate.name ||
       !formstate.email ||
       !formstate.password ||
-      !formstate.confirmpassword
+      !formstate.confirmPassword
     ) {
       toast({
         title: "Please Fill all the Feilds",
@@ -50,7 +52,7 @@ function Signup() {
       setLoading(false);
       return;
     }
-    if (formstate.password !== formstate.confirmpassword) {
+    if (formstate.password !== formstate.confirmPassword) {
       toast({
         title: "Passwords Do Not Match",
         status: "warning",
@@ -58,6 +60,7 @@ function Signup() {
         isClosable: true,
         position: "bottom",
       });
+      setLoading(false)
       return;
     }
     // console.log(name, email, password, pic);
@@ -82,7 +85,7 @@ function Signup() {
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      // history.push("/chats");
+      navigate("/chats");
     } catch (error) {
       toast({
         title: "Error Occured!",
