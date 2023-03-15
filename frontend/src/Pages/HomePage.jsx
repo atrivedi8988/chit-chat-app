@@ -9,8 +9,8 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
-import Login from "../Components/Login";
-import Signup from "../Components/Signup";
+import Login from "../Components/Authentication/Login";
+import Signup from "../Components/Authentication/Signup";
 
 function HomePage() {
   return (
